@@ -20,7 +20,6 @@ files_list = os.listdir(path)
 # print(files_list)
 
 
-
 compare = {}
 for file in files_list:
     pathFile = os.path.join(path, file)
@@ -34,7 +33,7 @@ for file in files_list:
     for idx, row in temp_df.iterrows():
         key = row[0]
         value = row[1]
-        
+
         # print(key, value)
 
         if key not in compare.keys():
@@ -42,11 +41,9 @@ for file in files_list:
 
         compare[key].append(value)
 
-
-
 for k, v in compare.items():
     total = 0
-    
+
     if v.count(v[0]) == len(v):
         print(f"✓ {k} {v[0]}")
     else:
@@ -58,7 +55,3 @@ for k, v in compare.items():
                 pass
             average = total / len(v)
             print(f"{k} Total: {total}, Average: {round(average)}")
-
-        
-        # print(f"✘ {k}: {v}")
-    
